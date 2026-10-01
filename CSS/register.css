@@ -1,0 +1,29 @@
+body     {
+    background-image: url(https://images7.alphacoders.com/918/thumb-1920-918980.jpg );
+    background-size: cover;
+    background-position: center;
+  
+}
+ 
+.card    {
+    width: fit-content;
+    border-radius: 20px;
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+    margin:90px auto;
+    
+}
+
+
+#create {
+    background-color: black;
+    color: white;
+}
+
+#create:hover {
+    background-color: white;
+    color: black;
+    border: 1px black solid;
+}
