@@ -2,9 +2,9 @@ body     {
     background-image: url(https://images7.alphacoders.com/918/thumb-1920-918980.jpg );
     background-size: cover;
     background-position: center;
-  
+
 }
- 
+
 .card    {
     width: fit-content;
     border-radius: 20px;

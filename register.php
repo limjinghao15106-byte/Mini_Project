@@ -21,8 +21,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
         // insert new user//
-        $statement = $pdo->prepare("INSERT INTO users (username, email, password_hash) VALUES (?, ?, ?)");
-        $statement->execute([$name, $email, $hashedPassword]);
+        $statement = $pdo->prepare("INSERT INTO users (username, email, hashedPassword) VALUES (:username, :email, :password)");
+        $statement->execute([
+            ':username' => $name,
+            ':email'=>$email,
+            ':password'=> $hashedPassword   
+        ]);
 
         // save user in session//
         $_SESSION['user'] = [

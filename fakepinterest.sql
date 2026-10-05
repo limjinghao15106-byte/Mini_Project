@@ -6,8 +6,9 @@ CREATE TABLE users (
     ID int auto_increment primary key,
     username varchar(225) not null ,
     email varchar(225) not null ,
-    role  enum ('Admin' , 'Staff' , 'User'),
-    create_at timestamp default CURRENT_TIMESTAMP
+    role  enum ('Admin' , 'Staff' , 'User') default 'user',
+    create_at timestamp default CURRENT_TIMESTAMP,
+    hashedPassword varchar(255) not null
     
 );
 
@@ -23,11 +24,9 @@ CREATE TABLE posts (
 
 );
 
+    
 CREATE TABLE follows (
     following_user_id int auto_increment primary key,
-    followed_user_id int auto_increment primary key,
     created_at timestamp default CURRENT_TIMESTAMP
 );
-
-
 

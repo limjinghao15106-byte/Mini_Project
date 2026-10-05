@@ -75,10 +75,10 @@ always redirect to login page after log out
 ## Day 4 — Date: __1/10/2026__
 
 ### What I planned to do today
-
+made post.php
 
 ### What I actually did
-
+navbar and post
 
 ### Blockers / Challenges
 
@@ -88,10 +88,10 @@ always redirect to login page after log out
 
 ---
 
-## Day 5 — Date: ____
+## Day 5 — Date: __5/10/26__
 
 ### What I planned to do today
-
+complete my save pin button feature
 
 ### What I actually did
 

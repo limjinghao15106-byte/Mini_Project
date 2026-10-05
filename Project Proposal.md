@@ -81,7 +81,7 @@ something similiar to pinterest
 
 ### 6.2 Extra Features (nice to have)
 
-- [ ] [ Content Creation & Sharing ]
+- [ ] [ Content Creation ]
 - [ ] [ Boards & Organization ]
 
 ### 6.3 Feature Descriptions

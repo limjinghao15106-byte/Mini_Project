@@ -7,14 +7,14 @@ require_once __DIR__ .'/config/database.php';
 $error = '';
 
 if ($_SERVER['REQUEST_METHOD'] ==='POST')   {
-    $email = $_POST['email'];
+    $name = $_POST['name'];
     $password = $_POST['password'];
 
-    $ORDER = $pdo->prepare('SELECT * FROM users WHERE email=:email');
-    $ORDER->execute(array('email'=> $email));
+    $ORDER = $pdo->prepare('SELECT * FROM users WHERE username=:name');
+    $ORDER->execute(array(':name'=> $name));
     $user = $ORDER->fetch(PDO::FETCH_ASSOC);
 
-    if($user && password_verify($password ,$user['password_hash'])){
+    if($user && password_verify($password ,$user['hashedPassword'])){
 
     $_SESSION['user'] =['id'=> $user['id'],'name'=> $user['name'], 'email'=>$user['email']];
     header('Location:post.php');
@@ -45,6 +45,7 @@ $error = 'Invalid email or password';
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
     <link rel="stylesheet" href="CSS/login.css">
+   
 </head>
 <body>
 
@@ -59,7 +60,7 @@ $error = 'Invalid email or password';
         <?php if ($error): ?>
             <div class="error-msg"><?= htmlspecialchars($error) ?></div>
         <?php endif; ?>
-        <form method="POST" action="register.php">
+        <form method="POST" action="login.php">
     <div class="mb-3">
     <label for="name" class="form-label ">Name:</label>
     <input type="text" id="name" name="name" class="form-control" placeholder="Full name" required>
