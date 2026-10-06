@@ -1,30 +1,6 @@
-<?php
-session_start();
-if (!isset($_SESSION['user'])) {
-    header('Location: login.php');
-    exit;
-}
-// initialize array
-if (!isset($_SESSION['pins'])) {
-    $_SESSION['pins'] = [];
-}
-if (!isset($_SESSION['saved_pins'])) {
-    $_SESSION['saved_pins'] = [];
-}
-// when the save button is pressed
-if (isset($_POST['save'])) {
-    $pin_id = (int) $_POST['pin_id'];
 
-    // Save pin ID into saved_pins
-    if (!in_array($pin_id, $_SESSION['saved_pins'])) {
-        $_SESSION['saved_pins'][] = $pin_id;
-    }
 
-    // Redirect back to post.php so user stays on same page
-    header('Location: post.php');
-    exit;
-}
-?>
+
 
 <!DOCTYPE html>
 <html lang="en">
