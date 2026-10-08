@@ -1,6 +1,28 @@
+<?php 
 
 
+session_start();
+// redirect user if not logged in
+if (!isset($_SESSION['user'])) {
+    header('Location: login.php');
+    exit;
+}
 
+if (!isset($_SESSION['saved_post'])) {
+  $_SESSION['saved_post']=[];
+}
+
+if (  isset($_POST['save'])) {
+  $post_id = (int) $_POST['post_id'];
+
+
+   // prevent duplicates
+    if (!in_array($post_id, $_SESSION['saved_post'])) {
+        $_SESSION['saved_post'][] = $post_id;
+    }
+
+}
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -35,12 +57,10 @@
     <h5 class="card-title">Muscle Sketch</h5>
     <p class="card-text">Hope yall like it</p>
     <p class="card-text"></p>
-    <form method="POST" action="post.php">
-    <input type="hidden" name="pin_id" value="123"> <!-- ID of the pin -->
-    <input type="hidden" name="title" value="My Pin Title"> <!--Title-->
-        <input type="hidden" name="image" value="example.jpg"> <!--Image-->
-        <input type="hidden" name="link" value="https://example.com"> <!--Link-->
-    <button type="submit" name="save" class="btn btn-primary">Save</button>
+<form method="POST" action="post.php">
+    <input type="hidden" name="post_id" value="1">
+    
+    <button type="submit" name="save" class="bg-dark text-white p-2  rounded">Save</button>
 </form>
   </div>
 </div>

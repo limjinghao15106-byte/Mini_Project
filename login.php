@@ -1,12 +1,13 @@
 <?php 
 
 session_start();
-
+// connect to database
 require_once __DIR__ .'/config/database.php';
 
 $error = '';
-
+// check if form was submitted
 if ($_SERVER['REQUEST_METHOD'] ==='POST')   {
+    // get from data
     $name = $_POST['name'];
     $password = $_POST['password'];
 

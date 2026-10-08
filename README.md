@@ -94,7 +94,24 @@ navbar and post
 complete my save pin button feature
 
 ### What I actually did
+keep redoing same thing
+so i decide to redo whole thing
 
+### Blockers / Challenges
+trying to send the post info such as post id link and image but it failed it only send the pin_id
+
+### What I learned
+
+
+---
+
+## Day 6 — Date: __6/10/26__
+
+### What I planned to do today
+finish what i left yesterday
+
+### What I actually did
+redo my sql table for roles and some feature 
 
 ### Blockers / Challenges
 
@@ -104,29 +121,13 @@ complete my save pin button feature
 
 ---
 
-## Day 6 — Date: ____
+## Day 7 — Date: __7/10/26__
 
 ### What I planned to do today
-
-
-### What I actually did
-
-
-### Blockers / Challenges
-
-
-### What I learned
-
-
----
-
-## Day 7 — Date: ____
-
-### What I planned to do today
-
+restructure cause of some feature for roles
 
 ### What I actually did
-
+restructure 
 
 ### Blockers / Challenges
 
