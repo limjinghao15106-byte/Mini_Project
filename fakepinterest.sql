@@ -34,8 +34,6 @@ CREATE TABLE posts (
 
 ---------------------------------------------------------------- post-------------------------------------------------
 use projectUSER;
-
-select * from posts;
 INSERT INTO posts (title ,image , category_id) VALUES 
 ('girl','https://i.pinimg.com/1200x/27/9a/26/279a268ad2b07effa8d79e466386b8d9.jpg',  1 ),
 ('Bocchi' , 'https://i.pinimg.com/1200x/0e/7e/76/0e7e765c0b0a5d4ffe89ea07dbe216c5.jpg' , 2),
@@ -57,7 +55,11 @@ CREATE TABLE    saved_post(
     FOREIGN KEY (post_id) REFERENCES posts(id)
 
 );
-
-
-
+use projectUSER;
+-- gives you the post’s own data.
+SELECT posts.id, posts.title, posts.image, categories.title AS category_name
+-- pulls the category’s name, but renames it so i don’t confuse it with the post’s title.
+FROM posts
+-- links each post to the correct category.
+JOIN categories ON posts.category_id = categories.id;
 
