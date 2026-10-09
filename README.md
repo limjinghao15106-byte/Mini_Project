@@ -137,26 +137,26 @@ restructure
 
 ---
 
-## Day 8 — Date: ____
+## Day 8 — Date: __8/10/26__
 
 ### What I planned to do today
-
+fix my code and complete feature
 
 ### What I actually did
-
+fixing and inserting post data into the web
 
 ### Blockers / Challenges
-
+i tryna use id 123 without giving them a title or a name straight away using it in other table
 
 ### What I learned
-
+gave a initial data in enum ('1' , '2' , '3') b4 using it on other table
 
 ---
 
-## Day 9 — Date: ____
+## Day 9 — Date: __9/10/26__
 
 ### What I planned to do today
-
+try finish everything
 
 ### What I actually did
 

@@ -21,6 +21,15 @@ if (  isset($_POST['save'])) {
         $_SESSION['saved_post'][] = $post_id;
     }
 
+// test
+$stmt = $pdo->query("SELECT * FROM posts");
+while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+    echo "<div class='card'>";
+    echo "<img src='{$row['image']}' alt=''>";
+    echo "<h5>{$row['title']}</h5>";
+    echo "</div>";
+}
+
 }
 ?>
 
@@ -51,19 +60,6 @@ if (  isset($_POST['save'])) {
 <!-- posts -->
 
 
-<div class="card" style="width: 18rem;">
-  <img src="https://i.pinimg.com/736x/d9/c5/13/d9c513083766ef64bfd5fe0d710af28a.jpg" class="card-img-top" alt="post">
-  <div class="card-body">
-    <h5 class="card-title">Muscle Sketch</h5>
-    <p class="card-text">Hope yall like it</p>
-    <p class="card-text"></p>
-<form method="POST" action="post.php">
-    <input type="hidden" name="post_id" value="1">
-    
-    <button type="submit" name="save" class="bg-dark text-white p-2  rounded">Save</button>
-</form>
-  </div>
-</div>
 
 
 

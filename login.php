@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] ==='POST')   {
     header('Location:post.php');
     exit;
     
- 
+
     }
 
 else{
