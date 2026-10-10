@@ -159,7 +159,7 @@ gave a initial data in enum ('1' , '2' , '3') b4 using it on other table
 try finish everything
 
 ### What I actually did
-
+done post page and nofitication after saving polish after everything is done 
 
 ### Blockers / Challenges
 
@@ -169,13 +169,13 @@ try finish everything
 
 ---
 
-## Day 10 — Date: ____
+## Day 10 — Date: __10/10/26__
 
 ### What I planned to do today
-
+done and fix the save button part
 
 ### What I actually did
-
+fixed the save buton part and profile 
 
 ### Blockers / Challenges
 

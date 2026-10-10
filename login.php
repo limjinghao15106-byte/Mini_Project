@@ -17,7 +17,12 @@ if ($_SERVER['REQUEST_METHOD'] ==='POST')   {
 
     if($user && password_verify($password ,$user['hashedPassword'])){
 
-    $_SESSION['user'] =['id'=> $user['id'],'name'=> $user['name'], 'email'=>$user['email']];
+    $_SESSION['user'] = [
+    'id' => $user['ID'] ?? $user['id'],        // matches your SQL column
+    'username' => $user['username'], // matches your SQL column
+    'email' => $user['email']
+];
+
     header('Location:post.php');
     exit;
     
@@ -26,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] ==='POST')   {
 
 else{
 
-$error = 'Invalid email or password';
+$error = 'Invalid username or password';
 
 
 

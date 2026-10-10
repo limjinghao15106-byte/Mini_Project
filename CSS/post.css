@@ -5,3 +5,45 @@ background-color: rgb(160, 159, 159);
 border-radius: 10px;
 padding:1px;
 }
+#nav {
+    background-color: black;
+}
+.posts-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 columns */
+  gap: 20px; /* spacing between posts */
+  padding: 20px;
+}
+
+.post-card {
+  background: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 15px;
+}
+
+
+.post-card img {
+  width: 100%;          /* make image fill the card width */
+  height: auto;         /* keep aspect ratio */
+  object-fit: cover;    /* crop nicely */
+ 
+}
+
+#card {
+   border: 2px solid white ;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+#save-button  {
+    background-color: black;
+    color:  white;
+    width: fit-content;
+    border-radius: 10px;
+    
+}
+
+.post-title {
+    font-weight: bolder;
+}

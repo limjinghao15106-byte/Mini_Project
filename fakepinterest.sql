@@ -62,4 +62,3 @@ SELECT posts.id, posts.title, posts.image, categories.title AS category_name
 FROM posts
 -- links each post to the correct category.
 JOIN categories ON posts.category_id = categories.id;
-
