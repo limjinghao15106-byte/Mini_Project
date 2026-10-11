@@ -4,6 +4,14 @@
   gap: 20px; /* spacing between posts */
   padding: 20px;
 }
+.posts-container img {
+  width: 100%;          /* make image fill the card width */
+  height: 360px;         /* keep aspect ratio */
+  overflow: hidden;
+  object-fit: cover;    /* crop nicely */
+ 
+}
+
 .tag {
     width: fit-content;
     font-size: smaller;
