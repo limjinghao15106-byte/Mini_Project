@@ -20,7 +20,8 @@ if ($_SERVER['REQUEST_METHOD'] ==='POST')   {
     $_SESSION['user'] = [
     'id' => $user['ID'] ?? $user['id'],        // matches your SQL column
     'username' => $user['username'], // matches your SQL column
-    'email' => $user['email']
+    'email' => $user['email'],
+    'role' => $user['role']
 ];
 
     header('Location:post.php');

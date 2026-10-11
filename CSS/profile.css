@@ -19,3 +19,15 @@
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
+.remove-button {
+    background-color: rgb(157, 7, 7);
+    color: white;
+    padding: 5px;
+    border-radius: 15px;
+    border: transparent 1px;
+}
+.save {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}

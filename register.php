@@ -28,14 +28,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             ':password'=> $hashedPassword   
         ]);
 
-        // save user in session//
+        // any user log in through this only normal user ,only an Admin can promote them from admin.php//
         $_SESSION['user'] = [
-            'id'    => $pdo->lastInsertId(),
-            'name'  => $name,
-            'email' => $email
-        ];
+                        'id'       => $pdo->lastInsertId(),
+                        'username' => $name,
+                        'email'    => $email,
+                        'role'     => 'User'
+];
 
-        header('Location: post.php');
+        header('Location: login.php');
         exit();
     }
 }

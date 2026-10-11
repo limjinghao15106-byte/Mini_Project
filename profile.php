@@ -18,11 +18,21 @@ $stmt = $pdo->prepare("
     FROM saved_post
     JOIN posts ON saved_post.post_id = posts.id
     JOIN categories ON posts.category_id = categories.id
-    WHERE saved_post.user_id = ?
+    WHERE saved_post.user_id = ? AND posts.is_hidden = 0
 ");
 $stmt->execute([$user_id]);
 $savedPosts = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
+$user_id = $_SESSION['user']['id']; // logged-in user ID
+
+// remove a saved post
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['remove'])) {
+    $post_id = (int) $_POST['post_id'];
+    $del = $pdo->prepare("DELETE FROM saved_post WHERE user_id = ? AND post_id = ?");
+    $del->execute([$user_id, $post_id]);
+    header('Location: profile.php');
+    exit;
+}
 ?>
 
 
@@ -41,7 +51,7 @@ $savedPosts = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <!-- navbar -->
      <nav class="navbar navbar-expand" id="nav">
   <div class="container">
-    <a href="#" class="navbar-brand text-white fs-3"><i class="bi bi-brush" title="Home"></i></a>
+    <a href="post.php" class="navbar-brand text-white fs-3"><i class="bi bi-brush" title="Home"></i></a>
     <ul class="navbar-nav">
     <!-- log out button -->
       <li>
@@ -55,7 +65,7 @@ $savedPosts = $stmt->fetchAll(PDO::FETCH_ASSOC);
   </div>
 </nav>
 
-<h2>Your Saved Posts</h2>
+<h2 class="save">Your Saved Posts</h2>
 
 <div class="posts-container">
 <?php
@@ -65,10 +75,17 @@ if (!empty($savedPosts)) {
         echo "<img src='" . htmlspecialchars($post['image']) . "' alt='" . htmlspecialchars($post['title']) . "'>";
         echo "<h3 class=' fw-bolder'>" . htmlspecialchars($post['title']) . "</h3>";
         echo "<p class='tag'>" . htmlspecialchars($post['category_name']) . "</p>";
+        // remove button
+        echo "<form method='POST' action='profile.php'>";
+        echo "<input type='hidden' name='post_id' value='" . (int)$post['id'] . "'>";
+        echo "<button type='submit' name='remove' class='remove-button'>Remove</button>";
+        echo "</form>";
         echo "</div>";
     }
-} else {
-    echo "<p>No posts saved yet.</p>";
+}
+
+ else {
+    echo "<p class='nosaved'>No posts saved yet.</p>";
 }
 ?>
 </div>

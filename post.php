@@ -31,6 +31,7 @@ $display = $pdo->query("
     SELECT posts.id, posts.title, posts.image, categories.title AS category_name
     FROM posts
     JOIN categories ON posts.category_id = categories.id
+    WHERE posts.is_hidden = 0
 ");
 ?>
 
@@ -51,8 +52,30 @@ $display = $pdo->query("
     <!-- navbar -->
     <nav class="navbar navbar-expand" id="nav">
   <div class="container">
-    <a href="#" class="navbar-brand text-white fs-3"><i class="bi bi-brush" title="Home"></i></a>
+    <a href="post.php" class="navbar-brand text-white fs-3"><i class="bi bi-brush" title="Home"></i></a>
     <ul class="navbar-nav">
+      <!-- for admin and staff to access their page -->
+
+
+      <?php
+$role = $_SESSION['user']['role'] ?? '';
+
+if ($role === 'Admin') {
+    echo "<li class='nav-item'>
+            <a href='admin.php' class='nav-link text-white'><i class='bi bi-bar-chart fs-3' title='Admin'></i></a>
+          </li>";
+}
+
+if ($role === 'Staff' || $role === 'Admin') {
+    echo "<li class='nav-item'>
+            <a href='staff.php' class='nav-link text-white'><i class='bi bi-menu-button-wide fs-3' title='Moderate'></i></a>
+          </li>";
+}
+?>
+<!------------------------------------------------------------------------------------------------->
+
+
+
     <!-- log out button -->
       <li>
         <a href="logout.php" class="nav-link text-white"><i class="bi bi-door-open fs-3 " title="Logout"></i></a>
@@ -72,13 +95,18 @@ $display = $pdo->query("
  <?php
 echo "<div class='posts-container'>";
 while ($row = $display->fetch(PDO::FETCH_ASSOC)) {
-    echo "<div class='card rounded border' id='card' style='width:18rem;'>";
+    echo "<div class='card rounded border' id='card'   style='width:18rem;'>";
     echo "<img src='{$row['image']}' alt='{$row['title']}'>";
+
+    echo "<div class='card-body post-info'>";
     echo "<h3>{$row['title']}</h3>";
     echo "<p id='tag'>{$row['category_name']}</p>";
     echo "<button type='button' id='save-button' onclick='showNotification(event, {$row['id']})'>Save</button>";
     echo "</div>";
+
+    echo "</div>";
 }
+
 echo "</div>";
 ?>
 

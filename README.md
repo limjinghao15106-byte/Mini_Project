@@ -178,26 +178,26 @@ done and fix the save button part
 fixed the save buton part and profile 
 
 ### Blockers / Challenges
-
+my post info isnt sending it to my profile.php
 
 ### What I learned
-
+send the postId to PHP via AJAX
 
 ---
 
-## Day 11 — Date: ____
+## Day 11 — Date: __11/10/26__
 
 ### What I planned to do today
-
+finished whole thing
 
 ### What I actually did
-
+finsihed my admin and staff page and managed to polished everything
 
 ### Blockers / Challenges
-
+analytic
 
 ### What I learned
-
+COUNT(*) counts the rows in a table, and fetchColumn() returns the single result so it can display it 
 
 ---
 

@@ -54,7 +54,7 @@ something similiar to pinterest
 |---|---|
 | [ Role 1, e.g. Admin ] | [ the user who owned this role able to access to everything ] |
 | [ Role 2, e.g. Staff ] | [  the user who owned this role able to access certain things] |
-| [ Role 3, e.g. Customer ] | [ the user owned this role only able to access something that only provided on the surface side] |
+| [ Role 3, e.g. USer ] | [ the user owned this role only able to access something that only provided on the surface side] |
 
 ### Role-Based Access Matrix
 
@@ -65,7 +65,7 @@ something similiar to pinterest
 | Register / Login | ✅ | ✅ | ✅ | ✅ |
 | [ Access Control] | ✅ | ❌ | ❌ | ❌ |
 | [ Content Moderation ] | ✅ | ✅ | ❌ | ❌ |
-| [ User data management ] | ✅ | ✅ | ✅ | ❌ |
+| [ save post ] | ✅ | ✅ | ✅ | ❌ |
 
 ---
 
@@ -76,13 +76,13 @@ something similiar to pinterest
 - [ ] User registration and login
 - [ ] Role-based access control (each role sees/does different things)
 - [ ] Data management (Create, Read, Update, Delete)
-- [ ] [ Engagement (likes/comments)]
-- [ ] [ Search & discovery ]
+- [ ] [save post]
+- [ ] []
 
 ### 6.2 Extra Features (nice to have)
 
-- [ ] [ Content Creation ]
-- [ ] [ Boards & Organization ]
+- [ ] [ analytic for admin ]
+- [ ] [ content moderation]
 
 ### 6.3 Feature Descriptions
 
@@ -90,9 +90,9 @@ something similiar to pinterest
 
 | Feature | Description | Role(s) |
 |---|---|---|
-| [User Accounts] | [Create and manage personal profiles, follow others, customize bio and settings] | [User, Admin ] |
-| [ Content Moderation] | [ Remove inappropriate pins/boards, enforce community guidelines] | [ Admin , Staff ] |
-| [Role Management ] | [ add/remove staff , assign permission , invite partners ] | [ Admin ] |
+| [role management] | [give user a special role] | [Admin ] |
+| [ Content Moderation] | [ Remove inappropriate post] | [ Admin , Staff ] |
+| [ save post] | [ save post] | [user ] |
 
 
 ---
@@ -103,9 +103,9 @@ something similiar to pinterest
 
 | Data / Entity | Create | Read | Update | Delete |
 |---|---|---|---|---|
-| [ user data ] | [ user ,staff ,admin] | [staff ,admin ] | [user ,staff ,admin ] | [ user ,staff ,admin ] |
-| [Content  data  ] | [ user ,staff ,admin] | [staff ,admin ] | [user ,staff ,admin ] | [ user ,staff ,admin ] |    
-|[ Ads data]| [Staff , Admin ] | [ Staff , Admin ]| [Staff , Admin ]| [Staff , Admin ]|
+| [save post] | [ admin] | [user,staff ,admin ] | [staff ,admin ] | [ user ,staff ,admin ] |
+| [Content  data  ] | [ staff ,admin] | [staff ,admin ] | [staff ,admin ] | [ staff ,admin ] |    
+|[ analytic]| [ Admin ] | [  Admin ]| [ Admin ]| [ Admin ]|
 ---
 
 ## 8. Database Design
