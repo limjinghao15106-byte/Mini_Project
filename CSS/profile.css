@@ -23,8 +23,10 @@
     background-color: rgb(157, 7, 7);
     color: white;
     padding: 5px;
-    border-radius: 15px;
+    border-radius: 10px;
     border: transparent 1px;
+    width: 99%;
+    
 }
 .save {
     align-items: center;

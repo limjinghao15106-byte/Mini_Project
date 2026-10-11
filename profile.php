@@ -73,18 +73,21 @@ if (!empty($savedPosts)) {
     foreach ($savedPosts as $post) {
         echo "<div class='card rounded border' id='card' style='width:18rem;'>";
         echo "<img src='" . htmlspecialchars($post['image']) . "' alt='" . htmlspecialchars($post['title']) . "'>";
-        echo "<h3 class=' fw-bolder'>" . htmlspecialchars($post['title']) . "</h3>";
+
+        echo "<div class='card-body post-info'>";
+        echo "<h3>" . htmlspecialchars($post['title']) . "</h3>";
         echo "<p class='tag'>" . htmlspecialchars($post['category_name']) . "</p>";
-        // remove button
+
+      // remove button
         echo "<form method='POST' action='profile.php'>";
         echo "<input type='hidden' name='post_id' value='" . (int)$post['id'] . "'>";
         echo "<button type='submit' name='remove' class='remove-button'>Remove</button>";
         echo "</form>";
         echo "</div>";
-    }
-}
 
- else {
+        echo "</div>";
+    }
+} else {
     echo "<p class='nosaved'>No posts saved yet.</p>";
 }
 ?>
