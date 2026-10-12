@@ -90,13 +90,15 @@ if ($role === 'Staff' || $role === 'Admin') {
 
 <!-- notify msg-->
 
+<!-- notify msg-->
+
  <div id="notify">Post saved!</div>
 
  <?php
 echo "<div class='posts-container'>";
 while ($row = $display->fetch(PDO::FETCH_ASSOC)) {
     echo "<div class='card rounded border' id='card'   style='width:18rem;'>";
-    echo "<img src='{$row['image']}' alt='{$row['title']}'>";
+    echo "<img src='{$row['image']}' alt='{$row['title']}' class='post-img' onclick='showBig(this)'>";
 
     echo "<div class='card-body post-info'>";
     echo "<h3>{$row['title']}</h3>";
@@ -110,7 +112,20 @@ while ($row = $display->fetch(PDO::FETCH_ASSOC)) {
 echo "</div>";
 ?>
 
-
+<!-- popup that shows the big image  -->
+<div class="modal fade" id="bigModal" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content  text-white">
+      <div class="modal-header border-0">
+        <h5 class="modal-title" id="bigTitle"></h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body text-center">
+        <img id="bigImage" src="" alt="" class="img-fluid" style="max-height:80vh;">
+      </div>
+    </div>
+  </div>
+</div>
 
   <!-- JS for notify-->
 <script>
@@ -132,7 +147,14 @@ function showNotification(event, postId) {
 })
 .then(response => response.text())
 
+}
 
+// open the popup and show the clicked image bigger (NEW)
+function showBig(img) {
+  document.getElementById("bigImage").src = img.src;          // same image link
+  document.getElementById("bigTitle").textContent = img.alt;  // the post title
+  let modal = new bootstrap.Modal(document.getElementById("bigModal"));
+  modal.show();
 }
 </script>
 <!-- ------------------------------------------- -->
@@ -140,8 +162,6 @@ function showNotification(event, postId) {
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </body>
 </html>
-
-
 
 
 
