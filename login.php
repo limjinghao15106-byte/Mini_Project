@@ -11,6 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] ==='POST')   {
     $name = $_POST['name'];
     $password = $_POST['password'];
 
+    //check if the user name and password exist in databse
     $ORDER = $pdo->prepare('SELECT * FROM users WHERE username=:name');
     $ORDER->execute(array(':name'=> $name));
     $user = $ORDER->fetch(PDO::FETCH_ASSOC);
@@ -18,8 +19,8 @@ if ($_SERVER['REQUEST_METHOD'] ==='POST')   {
     if($user && password_verify($password ,$user['hashedPassword'])){
 
     $_SESSION['user'] = [
-    'id' => $user['ID'] ?? $user['id'],        // matches your SQL column
-    'username' => $user['username'], // matches your SQL column
+    'id' => $user['ID'] ?? $user['id'],        
+    'username' => $user['username'], 
     'email' => $user['email'],
     'role' => $user['role']
 ];

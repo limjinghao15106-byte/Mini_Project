@@ -1,13 +1,16 @@
 <?php 
 session_start();
-require_once __DIR__ . '\config\database.php';
+require_once __DIR__ . '\config\database.php';  //connect to database
+
 
 $error = '';
+// only run when  the form was submited
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $name     = $_POST['name'];
     $email    = $_POST['email'];
     $password = $_POST['password'];
-
+    // store  info in the variable
+    
     // to check if email already exists //
     $statement = $pdo->prepare('SELECT * FROM users WHERE email = ?');
     $statement->execute([$email]);
